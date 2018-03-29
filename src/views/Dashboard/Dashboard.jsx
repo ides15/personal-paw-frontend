@@ -16,6 +16,7 @@ import {
     legendBar
 } from '../../variables/Variables.jsx';
 import logo from '../../assets/img/pennstatelogo.png';
+import logo2 from '../../assets/img/logo2.png';
 
 class Dashboard extends Component {
     createLegend(json){
@@ -39,8 +40,8 @@ class Dashboard extends Component {
                     <Row>
                         <Col md={12}>
                             <Card
-                                title="Welcome Penn State Student!"
-                                content={<img src={logo} alt="logo_image"/>}
+                                content={<img src={logo2} alt="logo2_image" height="200" width="200"/>}
+                                
                             />
                         </Col>
                     </Row>
