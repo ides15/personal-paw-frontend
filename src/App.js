@@ -7,8 +7,9 @@ import {
   Switch
 } from 'react-router-dom';
 
-import AppContainer from './containers/App/AppContainer'
-
+import AppContainer from './containers/App/AppContainer';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Login from './containers/Login/Login'
 import './assets/css/bootstrap.min.css';
 import './assets/css/animate.min.css';
 import './assets/sass/light-bootstrap-dashboard.css';
@@ -21,7 +22,10 @@ class App extends Component {
     return (
       <HashRouter>
         <Switch>
-          <Route path="/" name="Home" component={AppContainer}/>
+          {/*<Route path="/" name="Home" component={AppContainer}/>*/}
+          <Route path="/" component={Login} />
+          <Route path="/login" component={Login} />
+          <PrivateRoute path="/protected/" component={AppContainer} />
         </Switch>
       </HashRouter>
     );
