@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { init, queryInputKeyDown } from '../../assets/js/layout.js';
 import $ from 'jquery';
+import SpeechRecognition from 'react-speech-recognition'
+import PropTypes from 'prop-types';
 
-
+const propTypes = {
+    // Props injected by SpeechRecognition
+    transcript: PropTypes.string,
+    resetTranscript: PropTypes.func,
+    browserSupportsSpeechRecognition: PropTypes.bool
+}
 
 class Speech extends Component {
     constructor(props) {
@@ -11,16 +18,6 @@ class Speech extends Component {
             inputValue: '',
             resultDiv: null
         };
-        this._handleKeyPress = this._handleKeyPress.bind(this);
-    }
-
-    _handleKeyPress = (e) => {
-        if (e.key === 'Enter') {
-            queryInputKeyDown(this.state.inputValue, this.state.resultDiv);
-        }
-        if (e.key === " ") {
-            queryInputKeyDown(this.state.inputValue, this.state.resultDiv);
-        }
     }
 
     updateInputValue = (evt) => {
@@ -36,6 +33,18 @@ class Speech extends Component {
     }
 
     render() {
+        const { transcript, resetTranscript, browserSupportsSpeechRecognition } = this.props
+
+        if (!browserSupportsSpeechRecognition) {
+            return (
+                <div class="content">
+                    <div class="input-field">
+                        <input placeholder="Hey, ask me something..." id="q" type="text" value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)} />
+                    </div>
+                    <div id="result" ref={c => this.resultDiv = c}>
+                    </div>
+                </div>);
+        }
         return (
             <div class="content">
                 <div class="input-field">
@@ -47,4 +56,4 @@ class Speech extends Component {
         );
     }
 }
-export default Speech;
+export default SpeechRecognition(Speech);
