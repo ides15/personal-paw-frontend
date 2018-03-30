@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { NavItem, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
-import PopoverModule from '../../components/Popover/PopoverModule.jsx';
+import { NavItem, Nav,Navbar,FormGroup, NavDropdown, MenuItem } from 'react-bootstrap';
+import Speech from '../../components/Speech/Speech.jsx';
 
 class HeaderLinks extends Component{
     render(){
@@ -14,32 +14,19 @@ class HeaderLinks extends Component{
         );
         return (
             <div>
-                <Nav>
-                    <NavItem eventKey={1} href="#">
-                        <i className="fa fa-dashboard"></i>
-                        <p className="hidden-lg hidden-md">Dashboard</p>
-                    </NavItem>
-                    <NavDropdown eventKey={2} title={notification} noCaret id="basic-nav-dropdown">
-                        <PopoverModule />
-                    </NavDropdown>
-                    <NavItem eventKey={3} href="#">
-                        <i className="fa fa-search"></i>
-                        <p className="hidden-lg hidden-md">Search</p>
-                    </NavItem>
-                </Nav>
-                <Nav pullRight>
-                    <NavItem eventKey={1} href="#">Account</NavItem>
-                    <NavDropdown eventKey={2} title="Dropdown" id="basic-nav-dropdown-right">
-                        <MenuItem eventKey={2.1}>Action</MenuItem>
-                        <MenuItem eventKey={2.2}>Another action</MenuItem>
-                        <MenuItem eventKey={2.3}>Something</MenuItem>
-                        <MenuItem eventKey={2.4}>Another action</MenuItem>
-                        <MenuItem eventKey={2.5}>Something</MenuItem>
-                        <MenuItem divider />
-                        <MenuItem eventKey={2.5}>Separated link</MenuItem>
-                    </NavDropdown>
-                    <NavItem eventKey={3} href="#">Log out</NavItem>
-                </Nav>
+                <Navbar>
+                    <Navbar.Header>
+                        <Navbar.Brand>
+                            <a href="#"></a>
+                        </Navbar.Brand>
+                        <Navbar.Form bsClass="input-field" bsId="q" pullLeft>
+                            <FormGroup>
+                                <Speech />
+                            </FormGroup>{' '}
+                        </Navbar.Form>
+                    </Navbar.Header>
+                    
+                </Navbar>
             </div>
         );
     }

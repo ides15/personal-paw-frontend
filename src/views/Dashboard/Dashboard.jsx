@@ -49,12 +49,7 @@ class Dashboard extends Component {
                     </Row>
                     <Row>
                         <Col md={8}>
-                            <Card 
-                                title="Ask me anything!"
-                                content={
-                                    <Speech/>
-                                }
-                            />
+                           
                         </Col>
                         <Col md={4}>
                             {/*<div class="bubble-chart" id="bubble-chart">

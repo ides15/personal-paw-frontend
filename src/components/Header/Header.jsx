@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Navbar } from 'react-bootstrap';
+import { Navbar,FormGroup } from 'react-bootstrap';
 
 import HeaderLinks from './HeaderLinks.jsx';
-
+import Speech from '../../components/Speech/Speech.jsx';
 import appRoutes from '../../routes/app.jsx';
 
 class Header extends Component{
@@ -57,16 +57,18 @@ class Header extends Component{
     }
     render(){
         return (
-            <Navbar fluid>
-                <Navbar.Header>
-                    <Navbar.Brand>
-                        <a href="#pablo">{this.getBrand()}</a>
-                    </Navbar.Brand>
-                    <Navbar.Toggle onClick={this.mobileSidebarToggle}/>
-                </Navbar.Header>
-                <Navbar.Collapse>
-                    <HeaderLinks />
-                </Navbar.Collapse>
+            <Navbar>
+                    <Navbar.Header>
+                        <Navbar.Brand>
+                            <a href="#">Dashboard</a>
+                        </Navbar.Brand>
+                    </Navbar.Header>
+                    <Navbar.Collapse>
+                        <Navbar.Form pullLeft>
+                                <Speech />{' '}
+                        </Navbar.Form>
+                    </Navbar.Collapse>
+
             </Navbar>
         );
     }

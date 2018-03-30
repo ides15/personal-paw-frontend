@@ -14,6 +14,7 @@
  * limitations under the License.
  */
  import sendText from './demoFunctions.js';
+ import $ from 'jquery';
   "use strict";
 
   var ENTER_KEY_CODE = 13;
@@ -21,11 +22,18 @@
 
   export function init(resultElem) {
     resultDiv = resultElem;
+    queryInput = $("#q").get(0);
+    queryInput.addEventListener("keydown", queryInputKeyDown);
   }
-  export function queryInputKeyDown(queryInput) {
-
-    var value = queryInput;
-    queryInput = "";
+  export function queryInputKeyDown(event) {
+    if (event.which !== ENTER_KEY_CODE) {
+      return;
+    }
+    var value = queryInput.value;
+    queryInput.value = "";
+    if (value ==="") {
+      return;
+    }
 
     createQueryNode(value);
     var responseNode = createResponseNode();
@@ -49,16 +57,22 @@
 
   function createQueryNode(query) {
     var node = document.createElement('div');
-    node.className = "clearfix left-align left card-panel green accent-1";
+    node.className = "clearfix left-align left card-panel blue accent-1";
     node.innerHTML = query;
-    resultDiv.appendChild(node);
+    resultDiv.insertBefore(node, resultDiv.firstChild);
+      $( "#result div:last-child" ).delay(3000).fadeOut( "slow", function() {
+        $(this).remove();
+        $( "#result div:last-child" ).delay(3000).fadeOut( "slow", function() {
+          $(this).remove();
+        })
+      });
   }
 
   function createResponseNode() {
     var node = document.createElement('div');
     node.className = "clearfix right-align right card-panel blue-text text-darken-2 hoverable";
     node.innerHTML = "...";
-    resultDiv.appendChild(node);
+    resultDiv.insertBefore(node, resultDiv.firstChild);
     return node;
   }
 
