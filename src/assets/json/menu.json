@@ -1,0 +1,54 @@
+[
+ {
+   "_id": "Pasta",
+   "value": 143
+ },
+ {
+   "_id": "Pizza",
+   "value": 130
+ },
+ {
+   "_id": "Rice",
+   "value": 119
+ },
+ {
+   "_id": "Salad",
+   "value": 105
+ },
+ {
+   "_id": "Salmon",
+   "value": 99
+ },
+ {
+   "_id": "Tuna",
+   "value": 15
+ },
+ {
+   "_id": "Beans",
+   "value": 12
+ },
+ {
+   "_id": "Taco",
+   "value": 10
+ },
+ {
+   "_id": "Burger",
+   "value": 9
+ },
+ {
+   "_id": "Olive",
+   "value": 6
+ },
+ {
+   "_id": "Ice Cream",
+   "value": 5
+ },
+ {
+   "_id": "Brown Rice",
+   "value": 4
+ },
+ {
+   "_id": "Lettuce",
+   "value": 1
+ }
+]

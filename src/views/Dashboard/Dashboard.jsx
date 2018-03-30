@@ -15,8 +15,11 @@ import {
     responsiveBar,
     legendBar
 } from '../../variables/Variables.jsx';
-import logo from '../../assets/img/pennstatelogo.png';
-import logo2 from '../../assets/img/logo2.png';
+import BubbleChart from '../../components/BubbleChart/BubbleChart.jsx';
+import logo2 from '../../assets/img/pennstatelogo.png';
+import menuData from '../../assets/json/menu.json';
+import Speech from '../../components/Speech/Speech.jsx';
+//import logo2 from '../../assets/img/logo2.png';
 
 class Dashboard extends Component {
     createLegend(json){
@@ -40,42 +43,25 @@ class Dashboard extends Component {
                     <Row>
                         <Col md={12}>
                             <Card
-                                content={<img src={logo2} alt="logo2_image" height="200" width="200"/>}
-                                
+                                content={<img src={logo2} alt="logo2_image"/>}
                             />
                         </Col>
                     </Row>
                     <Row>
                         <Col md={8}>
-                            <Card
-                                statsIcon="fa fa-history"
-                                id="chartHours"
-                                title="Users Behavior"
-                                category="24 Hours performance"
-                                stats="Updated 3 minutes ago"
+                            <Card 
+                                title="Ask me anything!"
                                 content={
-                                    <div className="ct-chart">
-                                        <ChartistGraph
-                                            data={dataSales}
-                                            type="Line"
-                                            options={optionsSales}
-                                            responsiveOptions={responsiveSales}
-                                        />
-                                    </div>
-                                    }
-                                legend={
-                                    <div className="legend">
-                                        {this.createLegend(legendSales)}
-                                    </div>
+                                    <Speech/>
                                 }
                             />
                         </Col>
                         <Col md={4}>
-                                    <div id="speech">
-                                        <iframe width="300" height="450" src="https://console.dialogflow.com/api-client/demo/embedded/4130aeeb-9012-4126-941d-1773e2e08470">
-                                        </iframe>
-                                    </div>
-                                
+                            {/*<div class="bubble-chart" id="bubble-chart">
+                                <BubbleChart 
+                                    data={menuData}
+                                />
+                             </div>*/}
                         </Col>
                         
                     </Row>
